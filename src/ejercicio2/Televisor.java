@@ -9,8 +9,7 @@ public class Televisor implements IPrototype {
 	private int puertosUSB;
 	private boolean controlRemoto;
 	private boolean bluetooth;
-	private int senialTelevisor;
-	private String serial;
+	private int serialTelevisor;
 
 	public String getSistemaOperativo() {
 		return sistemaOperativo;
@@ -77,19 +76,39 @@ public class Televisor implements IPrototype {
 	}
 
 	public int getSenialTelevisor() {
-		return senialTelevisor;
+		return serialTelevisor;
 	}
 
 	public void setSenialTelevisor(int senialTelevisor) {
-		this.senialTelevisor = senialTelevisor;
+		this.serialTelevisor = senialTelevisor;
 	}
 
-	public String getSerial() {
-		return serial;
+	@Override
+	public Televisor clone() {
+		Televisor clonTelevisor = new Televisor();
+		clonTelevisor.setBluetooth(bluetooth);
+		clonTelevisor.setControlRemoto(controlRemoto);
+		clonTelevisor.setPuertoHDMI(puertoHDMI);
+		clonTelevisor.setPuertosUSB(puertosUSB);
+		clonTelevisor.setPulgadas(pulgadas);
+		clonTelevisor.setResolucion(resolucion);
+		clonTelevisor.setSenialTelevisor(serialTelevisor);
+		clonTelevisor.setSistemaOperativo(sistemaOperativo);
+		clonTelevisor.setVersionSistemaOperativo(versionSistemaOperativo);
+		return clonTelevisor;
 	}
 
-	public void setSerial(String serial) {
-		this.serial = serial;
-	}
+	public void showInfo() {
+		System.out.println("Televisor:::::::");
+		System.out.println("Bluetooth: " + bluetooth);
+		System.out.println("Control Remoto: " + controlRemoto);
+		System.out.println("Puerto HDMI:" + puertoHDMI);
+		System.out.println("Puerto USB: " + puertosUSB);
+		System.out.println("Pulgadas: " + pulgadas);
+		System.out.println("Resolución:" + resolucion);
+		System.out.println("Serial:" + serialTelevisor);
+		System.out.println("SO:" + sistemaOperativo);
+		System.out.println("Version SO:" + versionSistemaOperativo);
 
+	}
 }
